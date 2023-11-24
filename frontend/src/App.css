@@ -14,11 +14,32 @@
   padding: 0;
 }
 
+.create-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+}
+
+.create-container button {
+  width: 50%;
+  margin: auto;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   background: var(--light-color);
-  margin: 20px;
 }
 
 ul {
@@ -46,8 +67,9 @@ ul::-webkit-scrollbar-thumb:hover {
   background: #3852fbbd;
 }
 
-a {
-  text-decoration: none;
+
+.chat:hover {
+  background-color: var(--dark-color-a);
 }
 
 .btn {
@@ -57,6 +79,7 @@ a {
   color: var(--dark-color-a);
   border: 0;
   font-size: 17px;
+  transform: translate(-4px);
 }
 
 /* Chat Page */
@@ -88,7 +111,6 @@ a {
   background: var(--dark-color-b);
   color: #fff;
   padding: 20px 20px 60px;
-  overflow-y: scroll;
 }
 
 .chat-sidebar h2 {
@@ -103,13 +125,15 @@ a {
 }
 
 .chat-sidebar ul li {
-  padding: 10px 0;
+  padding: 10px 8px;
+  cursor: pointer;
 }
 
 .chat-messages {
   padding: 30px;
   max-height: 500px;
-  overflow-y: scroll;
+  overflow-y: auto;
+  position: relative;
 }
 
 .chat-messages .message {
@@ -131,6 +155,12 @@ a {
   color: #777;
 }
 
+.typing {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+}
+
 .chat-form-container {
   padding: 20px 30px;
   background-color: var(--dark-color-a);
@@ -145,63 +175,33 @@ a {
   padding: 5px;
   height: 40px;
   flex: 1;
+  border: none;
 }
 
-/* Join Page */
-.join-container {
-  max-width: 500px;
-  margin: 80px auto;
-  color: #fff;
+.chat-creator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 8px;
+  cursor: pointer;
 }
 
-.join-header {
-  text-align: center;
-  padding: 20px;
-  background: var(--dark-color-a);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+.chat-creator h3 {
+  margin: 0;
 }
 
-.join-main {
-  padding: 30px 40px;
-  background: var(--dark-color-b);
+.chat-creator:hover {
+  background: rgba(0, 0, 0, 0.1);
 }
 
-.join-main p {
-  margin-bottom: 20px;
-}
-
-.join-main .form-control {
-  margin-bottom: 20px;
-}
-
-.join-main label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.join-main input[type='text'] {
-  font-size: 16px;
-  padding: 5px;
-  height: 40px;
-  width: 100%;
-}
-
-.join-main select {
-  font-size: 16px;
-  padding: 5px;
-  height: 40px;
-  width: 100%;
-}
-
-.join-main .btn {
-  margin-top: 20px;
-  width: 100%;
-}
 
 @media (max-width: 700px) {
   .chat-main {
     display: block;
+  }
+
+  .btn-txt {
+    display: none;
   }
 
   .chat-sidebar {
